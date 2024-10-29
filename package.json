@@ -1,0 +1,17 @@
+{
+  "name": "curd_express_postman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "baskaran",
+  "license": "ISC",
+  "description": "postman and express and done a curd operation",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mongodb": "^6.10.0",
+    "mongoose": "^8.7.3"
+  }
+}
