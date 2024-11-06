@@ -25,6 +25,14 @@ app.use(express.urlencoded({ extended: true }));
 //     res.send(`JSON data: ${qry.name}, ${qry.id}`);
 // });
 const BlogRoutes = require('./router/router');
+const mongoose = require('mongoose');
+
+// DB Connection
+mongoose.connect("mongodb://localhost:27017/BlogManagement").then(() => { //database-name
+    console.log("MongoDB Connected...");
+});
+
+// mongoose.connect("mongodb+srv://baskaranv1315:numlock15052005.@cluster0.ahq7w2f.mongodb.net/").then(()=>console.log("mongodb connected"));
 
 
 app.use("/api/v1/blog/", BlogRoutes);

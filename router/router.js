@@ -23,6 +23,6 @@ const router = require('express').Router();
 const controller=require('../controllers/blogcontrolls')
 router.get("/getblogPost", controller.getblogpost);
 
-router.post("/createblogPost",controller.createblogPost);
+router.post("/createblogpost",controller.createblogpost);
 
 module.exports = router;
