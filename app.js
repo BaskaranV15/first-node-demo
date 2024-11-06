@@ -1,9 +1,7 @@
 const express =require('express');
-const port=4000;
-
-const app=express();
-
-
+const app = express();
+require('dotenv').config();
+const port = process.env.PORT || 4000;
 // to accept JSON requests from the payload
 app.use(express.json());
 // to accept url-encoded requests from the payload
@@ -27,13 +25,13 @@ app.use(express.urlencoded({ extended: true }));
 const BlogRoutes = require('./router/router');
 const mongoose = require('mongoose');
 
-// DB Connection
-mongoose.connect("mongodb://localhost:27017/BlogManagement").then(() => { //database-name
-    console.log("MongoDB Connected...");
-});
-
-// mongoose.connect("mongodb+srv://baskaranv1315:numlock15052005.@cluster0.ahq7w2f.mongodb.net/").then(()=>console.log("mongodb connected"));
-
+// DB Connection local
+// mongoose.connect("mongodb://localhost:27017/BlogManagement").then(() => { //database-name
+//     console.log("MongoDB Connected...");
+// });
+// DB Connection cloud
+mongoose.connect(process.env.MONGODB_URL)
+    .then(() => console.log("MongoDB Connected"));
 
 app.use("/api/v1/blog/", BlogRoutes);
 
